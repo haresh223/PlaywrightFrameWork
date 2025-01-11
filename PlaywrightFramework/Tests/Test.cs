@@ -1,5 +1,6 @@
 ﻿using Microsoft.Playwright;
 using NUnit.Framework;
+using PlaywrightFramework.Element;
 using PlaywrightFramework.Elements;
 using PlaywrightFramework.SetUpClasses;
 using System;
@@ -22,8 +23,6 @@ namespace PlaywrightFramework.Tests
         [Test]
         public async Task test2()
         {
-            //Console.WriteLine("Hi Test run successfull");
-            //page.GotoAsync("https://www.google.co.in/");
             await browser.NavigateToURL("https://uat-members.sacsconsult.com.au/login");
             await textElement.EnterTextAndPressEnter("some Text");
             await textElement.ClearText();

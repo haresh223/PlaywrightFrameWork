@@ -1,9 +1,5 @@
 ﻿using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PlaywrightFramework.Element;
 
 namespace PlaywrightFramework.Elements
 {
@@ -29,6 +25,31 @@ namespace PlaywrightFramework.Elements
         {
             return new TextBoxElement(page, selector);
         }
+        public RadioElement FindRadioElement(string selector)
+        {
+            return new RadioElement(page, selector);
+        }
 
+        public CheckboxElement FindCheckboxElement(string selector)
+        {
+            return new CheckboxElement(page, selector);
+        }
+        public WebElements FindWebElements(string selector)
+        {
+            return new WebElements(page, selector);
+        }
+        public TextElements FindTextElements(string selector)
+        {
+            return new TextElements(page, selector);
+        }
+        public RadioElements FindRadioElements(string selector)
+        {
+            return new RadioElements(page, selector);
+        }
+        public CheckboxElements FindCheckboxElements(string selector)
+        {
+            return new CheckboxElements(page, selector);
+        }
     }
+
 }

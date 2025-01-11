@@ -1,4 +1,5 @@
-﻿using PlaywrightFramework.Elements;
+﻿using PlaywrightFramework.Element;
+using PlaywrightFramework.Elements;
 using PlaywrightFramework.SetUpClasses;
 using System;
 using System.Collections.Generic;
