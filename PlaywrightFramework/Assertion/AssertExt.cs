@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayWright.Assertion
+namespace PlaywrightFramework.Assertion
 {
     internal class AssertExt
     {
@@ -13,52 +13,55 @@ namespace PlayWright.Assertion
         {
             if (condition)
             {
-                Setup.test.Pass(message);
+                Hooks.scenario.Pass(message);
             }
             else
             {
-                Setup.test.Fail(message);
+                Hooks.scenario.Fail(message);
             }
-            Assert.IsTrue(condition);
+            Assert.That(condition, Is.True, message);
+            
         }
 
         public static void IsFalse(bool condition, string message)
         {
             if (!condition)
             {
-                Setup.test.Pass(message);
+                Hooks.scenario.Pass(message);
             }
             else
             {
-                Setup.test.Fail(message);
+                Hooks.scenario.Fail(message);
             }
-            Assert.IsFalse(condition);
+            Assert.That(condition,Is.False,message);
         }
 
         public static void AreEqual(string value1, string value2, string message)
         {
             if (value1 == value2)
             {
-                Setup.test.Pass(message);
+                Hooks.scenario.Pass(message);
             }
             else
             {
-                Setup.test.Fail($"{value1} is not equals to {value2}");
+                Hooks.scenario.Fail($"{value1} is not equals to {value2}");
             }
-            Assert.AreEqual(value1, value2, message);
+            Assert.That(value1, Is.EqualTo(value2),message);
+            
         }
 
         public static void AreNotEqual(string value1, string value2, string message)
         {
             if (value1 != value2)
             {
-                Setup.test.Pass(message);
+                Hooks.scenario.Pass(message);
             }
             else
             {
-                Setup.test.Fail($"{value1} is equals to {value2}");
+                Hooks.scenario.Fail($"{value1} is equals to {value2}");
             }
-            Assert.AreNotEqual(value1, value2, message);
+            Assert.That(value1, Is.Not.EqualTo(value2), message);
+
         }
     }
 }

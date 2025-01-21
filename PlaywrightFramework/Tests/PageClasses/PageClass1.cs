@@ -13,10 +13,10 @@ namespace PlaywrightFramework.Tests.PageClasses
     {
         public Browser browser => new Browser(BrowserAsync.page);
 
-        public TextBoxElement textBoxElement => browser.FindTextBoxElement("");
+        public TextBoxElement textBoxElement => browser.FindTextBoxElement("input[type='email']");
         internal async Task EnterTextInTextBox()
         {
-           await textBoxElement.EnterText("");
+           await textBoxElement.EnterText("bhutramohit");
         }
     }
 }

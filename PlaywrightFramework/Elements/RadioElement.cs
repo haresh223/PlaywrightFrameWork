@@ -268,6 +268,7 @@ namespace PlaywrightFramework.Element
 
         // Wait for all radio buttons to be checked
         public async Task WaitForCheckedAll()
+
         {
             var elements = await GetElementsAsync();
             foreach (var element in elements)

@@ -155,6 +155,7 @@ namespace PlaywrightFramework.Element
         public async Task<bool> IsTextboxReadOnly()
         {
             if (_selector != null)
+
             {
                 ILocator _element = _page.Locator(_selector);
 

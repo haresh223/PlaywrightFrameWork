@@ -17,11 +17,48 @@ namespace PlaywrightFramework.SetUpClasses
         public async Task InitilizeAsync()
         {
             // initiate browser
+            var browserType = ConfigManager._environmentConfig.browserType;
             var playwright = await Playwright.CreateAsync();
-            Browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            //Browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            //{
+            //    Headless = false,
+            //});
+
+            switch (browserType.ToLower())
             {
-                Headless = false,
-            });
+                case "chrome":
+                    Browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                    {
+                        Headless = false
+                    });
+                    break;
+
+                case "firefox":
+                    Browser = await playwright.Firefox.LaunchAsync(new BrowserTypeLaunchOptions
+                    {
+                        Headless = false
+                    });
+                    break;
+
+                case "webkit":
+                    Browser = await playwright.Webkit.LaunchAsync(new BrowserTypeLaunchOptions
+                    {
+                        Headless = false
+                    });
+                    break;
+
+                case "edge":
+                    Browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                    {
+                        Channel = "msedge",
+                        Headless = false
+                    });
+                    break;
+
+                default:
+                    throw new ArgumentException($"Unsupported browser type: {browserType}");
+            }
+
             page = await Browser.NewPageAsync();
             
         }

@@ -1,5 +1,7 @@
 ﻿{
   "baseUrl": "https://uat-members.sacsconsult.com.au",
   "username": "testuser@example.com",
-  "password": "yourpassword"
+  "password": "yourpassword",
+  "browserType": "chrome"
+
 }

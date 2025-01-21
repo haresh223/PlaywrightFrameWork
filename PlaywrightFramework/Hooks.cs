@@ -15,20 +15,19 @@ namespace PlaywrightFramework
         public static BrowserAsync BrowserAsync { get; set; }
         public static ExtentTest feature;
         public static ExtentTest scenario;
-        public static EnvironmentConfig EnvironmentConfig {  get; set; }
         string projectPath;
         string reportPath;
 
         [BeforeTestRun]
         public static async Task SetupAsync()
         {
+            ConfigManager.GetConfig();
             BrowserAsync = new BrowserAsync();
             await BrowserAsync.InitilizeAsync();
-            ConfigManager.GetConfig();
             //string configFilePath = "config.json";
             //string jsonString = File.ReadAllText(configFilePath);
             //EnvironmentConfig = JsonSerializer.Deserialize<EnvironmentConfig>(jsonString);
-            Report.Instance.Initialize(EnvironmentConfig.baseUrl);
+            Report.Instance.Initialize(ConfigManager._environmentConfig.baseUrl);
         }
 
         [AfterScenario]
